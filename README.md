@@ -87,6 +87,7 @@ cat ("varian = ", varian, "\n")
 
 - Langsung subtitusi ke fungsi ```dpois``` untuk menghitung peluang terdapat 4 pasien yang sembuh
 ```r
+#a
 lambda = 4.5
 x = 6
 dpois(x, lambda)
@@ -97,6 +98,7 @@ dpois(x, lambda)
 ![image](https://media.discordapp.net/attachments/869563207658913802/962594471688695878/Screen_Shot_2022-04-10_at_1.06.40_PM.png)  
 dengan peluang 6 bayi per harinya adalah
 ```r
+#b
 set.seed(0)
 n = 365
 y = rpois(n, lambda)
@@ -105,8 +107,8 @@ z = (rpois(n, lambda) == 6)
 mean(z)
 #hasil : [1] 0.1342466
 ```
-### 3c
-Tidak terpaut jauh dengan ekspetasi
-### 3d
-Mean dan varians Distribusi Poison adalah lambda = 4.5
+
+- Tidak terpaut jauh dengan ekspetasi
+
+- Mean dan varians Distribusi Poison adalah lambda = 4.5
 </br>
