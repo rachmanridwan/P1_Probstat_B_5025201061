@@ -81,3 +81,35 @@ varian = n*p*q
 cat ("varian = ", varian, "\n")
 ```
 </br>
+
+## Soal 3
+> Diketahui data dari sebuah tempat bersalin di rumah sakit tertentu menunjukkan rata-rata historis 4,5 bayi lahir di rumah sakit ini setiap hari. (gunakan Distribusi Poisson)
+- Berapa peluang bahwa 6 bayi akan lahir di rumah sakit ini besok?
+``` R
+mean_bayi_lahir = 4.5
+#a
+banyak_bayi_lahir = 6
+dpois(banyak_bayi_lahir, mean_bayi_lahir)
+```
+
+- simulasikan dan buatlah histogram kelahiran 6 bayi akan lahir di rumah sakit ini selama setahun (n = 365)
+``` R
+#b
+peluang = dpois(banyak_bayi_lahir,mean_bayi_lahir)
+data = data.frame(y=c(peluang), x=c(1:365))
+barplot(data$y, names.arg=data$x, ylab="peluang", xlab="hari ke-", ylim=0:1)
+```
+
+- bandingkan hasil poin a dan b , Apa kesimpulan yang bisa didapatkan
+
+Dari Perhitungan yang diperoleh, didapatkan bahwa nilai distribusi poisson tidak berubah dari hari pertama hingga hari terakhir.
+
+- Nilai Rataan (μ) dan Varian (σ²) dari Distribusi Poisson.
+``` R
+#d
+lambda = mean_bayi_lahir
+rataan = varian = lambda
+rataan
+varian
+```
+</br>
