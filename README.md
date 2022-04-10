@@ -84,16 +84,16 @@ cat ("varian = ", varian, "\n")
 
 ## Soal 3
 > Diketahui data dari sebuah tempat bersalin di rumah sakit tertentu menunjukkan rata-rata historis 4,5 bayi lahir di rumah sakit ini setiap hari. (gunakan Distribusi Poisson)
-### 3a
-Langsung subtitusi ke fungsi ```dpois``` untuk menghitung peluang terdapat 4 pasien yang sembuh
+
+- Langsung subtitusi ke fungsi ```dpois``` untuk menghitung peluang terdapat 4 pasien yang sembuh
 ```r
 lambda = 4.5
 x = 6
 dpois(x, lambda)
 #hasil : [1] 0.1281201
 ```
-### 3b
-Berikut grafik histogram untuk 365 hari 
+
+- Berikut grafik histogram untuk 365 hari 
 ![image](https://media.discordapp.net/attachments/869563207658913802/962594471688695878/Screen_Shot_2022-04-10_at_1.06.40_PM.png)  
 dengan peluang 6 bayi per harinya adalah
 ```r
