@@ -1,14 +1,16 @@
+#No.4
+
 x = 2
 v = 10
-#4a
+#a
 dchisq(x, v)
 
-#4b
+#b
 random_data = 100
 output = rchisq(random_data, v)
 hist(output)
 
-#4c
+#c
 rataan = v
 rataan
 varian = 2*v
