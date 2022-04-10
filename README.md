@@ -72,7 +72,12 @@ barplot(data$y, names.arg=data$x, ylab="Peluang", xlab="Jumlah Pasien")
 - Nilai rataan (μ) dan varian (σ²) dari distribusi Binomial
 ``` R
 #c
-n*p #mean
-n*p*(1 - p) #variance
+p = Peluang_Sembuh
+q = Peluang_Tidak_Sembuh
+n = Pasien_Sembuh
+rataan = n*p
+cat ("rataan = ", rataan, "\n")
+varian = n*p*q
+cat ("varian = ", varian, "\n")
 ```
 </br>
