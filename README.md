@@ -54,32 +54,19 @@ paste("Variant is ", varian)
 > Terdapat 20 pasien menderita Covid19 dengan peluang sembuh sebesar 0.2. Tentukan :
 - Peluang terdapat 4 pasien yang sembuh
 ``` R
+Sampel = 20
+Peluang_Sembuh = 0.2
+Peluang_Tidak_Sembuh = 1 - Peluang_Sembuh
 #a
-p = 0.2
-n = 20
-X = 4
-dbinom(x = X, size = n, prob = p)
+Pasien_Sembuh = 4
 ```
 
 - (Soal 2B) Diagram dapat dilihat pada folder ss pada repo.
 ``` R
 #b
-library(dplyr)
-library(ggplot2)
-
-data.frame(x = 0:10, prob = dbinom(x = 0:10, size = n, prob = p)) %>%
-  mutate(pasien = ifelse(x == X, X, "lainnya")) %>%
-ggplot(aes(x = factor(x), y = prob, fill = pasien)) +
-  geom_col() +
-  geom_text(
-    aes(label = round(prob,2), y = prob + 0.01),
-    position = position_dodge(0.9),
-    size = 3,
-    vjust = 0
-  ) +
-  labs(title = "Peluang 4 pasien sembuh",
-       x = "Sembuh",
-       y = "Peluang")
+peluang <- dbinom(1:20, 20, 0.2)
+data = data.frame(y=c(peluang), x=c(1:20))
+barplot(data$y, names.arg=data$x, ylab="Peluang", xlab="Jumlah Pasien")
 ```
 
 - Nilai rataan (μ) dan varian (σ²) dari distribusi Binomial
