@@ -29,7 +29,7 @@ mean(vec)
 #c
 Hasilnya tidak terpaut jauh. Namun karena 1b menggunakan fungsi random alhasil hasilnya berbeda beda
 
--Diagram dapat dilihat pada folder ss pada repo.
+- Diagram dapat dilihat pada folder ss pada repo.
 ``` R
 #d
 set.seed(10)
