@@ -26,6 +26,9 @@ vec = (rgeom(data, p) == x)
 mean(vec)
 ```
 
+#c
+Hasilnya tidak terpaut jauh. Namun karena 1b menggunakan fungsi random alhasil hasilnya berbeda beda
+
 ``` R
 #d
 set.seed(10)
