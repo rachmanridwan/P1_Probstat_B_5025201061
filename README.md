@@ -112,3 +112,31 @@ mean(z)
 
 - Mean dan varians Distribusi Poison adalah lambda = 4.5
 </br>
+
+## Soal 4
+> Diketahui nilai x = 2 dan v = 10. Tentukan:
+- Fungsi Probabilitas dari Distribusi Chi-Square.
+``` R
+x = 2
+v = 10
+#4a
+dchisq(x, v)
+```
+
+- Histogram dari Distribusi Chi-Square dengan 100 data random. Data dapat dilihat pada folder ss.
+``` R
+#4b
+random_data = 100
+output = rchisq(random_data, v)
+hist(output)
+```
+
+- Nilai Rataan (μ) dan Varian (σ²) dari DistribusiChi-Square.
+``` R
+#4c
+rataan = v
+rataan
+varian = 2*v
+varian
+```
+</br>
