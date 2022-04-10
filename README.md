@@ -119,13 +119,13 @@ mean(z)
 ``` R
 x = 2
 v = 10
-#4a
+#a
 dchisq(x, v)
 ```
 
 - Histogram dari Distribusi Chi-Square dengan 100 data random. Data dapat dilihat pada folder ss.
 ``` R
-#4b
+#b
 random_data = 100
 output = rchisq(random_data, v)
 hist(output)
@@ -133,7 +133,7 @@ hist(output)
 
 - Nilai Rataan (μ) dan Varian (σ²) dari DistribusiChi-Square.
 ``` R
-#4c
+#c
 rataan = v
 rataan
 varian = 2*v
