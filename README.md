@@ -10,7 +10,7 @@ Praktikum Modul 1 Probabilitas dan Statistika
 >Seorang penyurvei secara acak memilih orang-orang di jalan sampai dia bertemu dengan seseorang yang menghadiri acara vaksinasi sebelumnya.
 - Berapa peluang penyurvei bertemu x = 3 orang yang tidak menghadiri acara vaksinasi sebelum keberhasilan pertama ketika p = 0.20 dari populasi menghadiri acara vaksinasi? (distribusi Geometrik)
 ``` R
-#no.1a
+#a
 n = 3
 p = 0.20
 dgeom(x = n, prob = p)
@@ -18,12 +18,12 @@ dgeom(x = n, prob = p)
 
 - Mean distribusi Geometrik dengan 10000 data random, prob = 0,20 dimana distribusi geometrik acak tersebut X = 3 (distribusi Geometrik acak () == 3)
 ``` R
-#no.1b
+#b
 mean(rgeom(n = 10000, prob = p) == 3)
 ```
 
 ``` R
-#no.1d
+#d
 data.frame(x = 0:10, prob = dgeom(x = 0:10, prob = p)) %>%
   mutate(Failures = ifelse(x == n, n, "other")) %>%
   ggplot(aes(x = factor(x), y = prob, fill = Failures)) +
@@ -41,7 +41,7 @@ data.frame(x = 0:10, prob = dgeom(x = 0:10, prob = p)) %>%
 ```
 
 ``` R
-#no.1e
+#e
 miu = 1/p
 paste("Average is ", miu)
 
@@ -54,7 +54,7 @@ paste("Variant is ", varian)
 > Terdapat 20 pasien menderita Covid19 dengan peluang sembuh sebesar 0.2. Tentukan :
 - Peluang terdapat 4 pasien yang sembuh
 ``` R
-#no.2a
+#a
 p = 0.2
 n = 20
 X = 4
@@ -63,7 +63,7 @@ dbinom(x = X, size = n, prob = p)
 
 - Gambarkan grafik histogram berdasarkan kasus tersebut
 ``` R
-#no.2b
+#b
 library(dplyr)
 library(ggplot2)
 
@@ -84,7 +84,7 @@ ggplot(aes(x = factor(x), y = prob, fill = pasien)) +
 
 - Nilai rataan (μ) dan varian (σ²) dari distribusi Binomial
 ``` R
-#no.2c
+#c
 n*p #mean
 n*p*(1 - p) #variance
 ```
