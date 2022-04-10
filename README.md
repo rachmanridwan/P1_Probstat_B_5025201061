@@ -84,32 +84,29 @@ cat ("varian = ", varian, "\n")
 
 ## Soal 3
 > Diketahui data dari sebuah tempat bersalin di rumah sakit tertentu menunjukkan rata-rata historis 4,5 bayi lahir di rumah sakit ini setiap hari. (gunakan Distribusi Poisson)
-- Berapa peluang bahwa 6 bayi akan lahir di rumah sakit ini besok?
-``` R
-mean_bayi_lahir = 4.5
-#a
-banyak_bayi_lahir = 6
-dpois(banyak_bayi_lahir, mean_bayi_lahir)
+### 3a
+Langsung subtitusi ke fungsi ```dpois``` untuk menghitung peluang terdapat 4 pasien yang sembuh
+```r
+lambda = 4.5
+x = 6
+dpois(x, lambda)
+#hasil : [1] 0.1281201
 ```
-
-- simulasikan dan buatlah histogram kelahiran 6 bayi akan lahir di rumah sakit ini selama setahun (n = 365)
-``` R
-#b
-peluang = dpois(banyak_bayi_lahir,mean_bayi_lahir)
-data = data.frame(y=c(peluang), x=c(1:365))
-barplot(data$y, names.arg=data$x, ylab="peluang", xlab="hari ke-", ylim=0:1)
+### 3b
+Berikut grafik histogram untuk 365 hari 
+![image](https://media.discordapp.net/attachments/869563207658913802/962594471688695878/Screen_Shot_2022-04-10_at_1.06.40_PM.png)  
+dengan peluang 6 bayi per harinya adalah
+```r
+set.seed(0)
+n = 365
+y = rpois(n, lambda)
+hist(y)
+z = (rpois(n, lambda) == 6)
+mean(z)
+#hasil : [1] 0.1342466
 ```
-
-- bandingkan hasil poin a dan b , Apa kesimpulan yang bisa didapatkan
-
-Dari Perhitungan yang diperoleh, didapatkan bahwa nilai distribusi poisson tidak berubah dari hari pertama hingga hari terakhir.
-
-- Nilai Rataan (μ) dan Varian (σ²) dari Distribusi Poisson.
-``` R
-#d
-lambda = mean_bayi_lahir
-rataan = varian = lambda
-rataan
-varian
-```
+### 3c
+Tidak terpaut jauh dengan ekspetasi
+### 3d
+Mean dan varians Distribusi Poison adalah lambda = 4.5
 </br>
