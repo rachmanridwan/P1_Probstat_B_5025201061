@@ -38,6 +38,8 @@ y = rgeom(x, 0.2)
 hist(y)
 ```
 
+- Mean Distribusi Geometrik adalah 1/p = 1/0.2 = 5  
+  Varians Distribusi Geometrik adalah q/(p^2) = 0.8/(0.2^2)= 20 
 ``` R
 #e
 miu = 1/p
