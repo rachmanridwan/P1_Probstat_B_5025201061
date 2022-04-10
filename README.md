@@ -61,7 +61,7 @@ X = 4
 dbinom(x = X, size = n, prob = p)
 ```
 
-- Gambarkan grafik histogram berdasarkan kasus tersebut
+- (Soal 2B) Diagram dapat dilihat pada folder ss pada repo.
 ``` R
 #b
 library(dplyr)
