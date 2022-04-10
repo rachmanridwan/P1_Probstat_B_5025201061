@@ -29,6 +29,7 @@ mean(vec)
 #c
 Hasilnya tidak terpaut jauh. Namun karena 1b menggunakan fungsi random alhasil hasilnya berbeda beda
 
+-Diagram dapat dilihat pada folder ss pada repo.
 ``` R
 #d
 set.seed(10)
@@ -36,7 +37,6 @@ x = 10000
 y = rgeom(x, 0.2)
 hist(y)
 ```
-Diagram dapat dilihat pada folder ss pada repo.
 
 ``` R
 #e
