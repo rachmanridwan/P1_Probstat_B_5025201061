@@ -19,25 +19,19 @@ dgeom(x = n, prob = p)
 - Mean distribusi Geometrik dengan 10000 data random, prob = 0,20 dimana distribusi geometrik acak tersebut X = 3 (distribusi Geometrik acak () == 3)
 ``` R
 #b
-mean(rgeom(n = 10000, prob = p) == 3)
+data = 10000
+p = 0.2
+x = 3
+vec = (rgeom(data, p) == x)
+mean(vec)
 ```
 
 ``` R
 #d
-data.frame(x = 0:10, prob = dgeom(x = 0:10, prob = p)) %>%
-  mutate(Failures = ifelse(x == n, n, "other")) %>%
-  ggplot(aes(x = factor(x), y = prob, fill = Failures)) +
-  geom_col() +
-  geom_text(
-    aes(label = round(prob,2), y = prob + 0.01),
-    position = position_dodge(0.9),
-    size = 3,
-    vjust = 0
-  ) +
-  labs(title = "Probability of X = 3 Failures Prior to First Success",
-       subtitle = "Geometric(.2)",
-       x = "Failures prior to first success (x)",
-       y = "Probability")  
+set.seed(10)
+x = 10000
+y = rgeom(x, 0.2)
+hist(y)
 ```
 
 ``` R
