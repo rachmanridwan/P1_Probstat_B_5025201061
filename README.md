@@ -94,7 +94,7 @@ dpois(x, lambda)
 #hasil : [1] 0.1281201
 ```
 
-- Simulasikan dan buatlah histogram kelahiran 6 bayi akan lahir di rumah sakit ini selama setahun (n = 365)
+- Simulasikan dan buatlah histogram kelahiran 6 bayi akan lahir di rumah sakit ini selama setahun (n = 365). Dapat dilihat di folder ss.
 
 ```r
 #b
