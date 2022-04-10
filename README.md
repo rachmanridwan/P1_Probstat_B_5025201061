@@ -94,9 +94,8 @@ dpois(x, lambda)
 #hasil : [1] 0.1281201
 ```
 
-- Berikut grafik histogram untuk 365 hari 
-![image](https://media.discordapp.net/attachments/869563207658913802/962594471688695878/Screen_Shot_2022-04-10_at_1.06.40_PM.png)  
-dengan peluang 6 bayi per harinya adalah
+- Simulasikan dan buatlah histogram kelahiran 6 bayi akan lahir di rumah sakit ini selama setahun (n = 365)
+
 ```r
 #b
 set.seed(0)
