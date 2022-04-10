@@ -1,14 +1,18 @@
-#1a
+#No.1
+
+#a
 n = 3
 p = 0.20
 dgeom(x = n, prob = p)
-#1b
+
+#b
 mean(rgeom(n = 10000, prob = p) == 3)
-#1c
+
+#c
 #Hasil dari perhitungan a dan b tidak terlalu jauh, bedanya kalau a itu nilainya tetap
 #sedangkan kalau b itu hasilnya random, besar kecil nilainya ditentukan oleh X
 
-#1d
+#d
 data.frame(x = 0:10, prob = dgeom(x = 0:10, prob = p)) %>%
   mutate(Failures = ifelse(x == n, n, "other")) %>%
   ggplot(aes(x = factor(x), y = prob, fill = Failures)) +
@@ -24,7 +28,7 @@ data.frame(x = 0:10, prob = dgeom(x = 0:10, prob = p)) %>%
        x = "Kegagalan sebelum sukses yang pertama (x)",
        y = "Peluang") 
 
-#1e
+#e
 #Rataan
 miu = 1/p
 paste("Rataan adalah ", miu)
