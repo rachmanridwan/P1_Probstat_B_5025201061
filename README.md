@@ -26,10 +26,8 @@ vec = (rgeom(data, p) == x)
 mean(vec)
 ```
 
-```R
 #c
-Hasilnya tidak terpaut jauh. Namun karena 1b menggunakan fungsi random alhasil hasilnya berbeda beda
-```
+- Hasilnya tidak terpaut jauh. Namun karena 1b menggunakan fungsi random alhasil hasilnya berbeda beda
 
 ``` R
 #d
