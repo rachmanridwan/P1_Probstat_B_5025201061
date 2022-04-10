@@ -27,7 +27,7 @@ mean(vec)
 ```
 
 #c
-- Hasilnya tidak terpaut jauh. Namun karena 1b menggunakan fungsi random alhasil hasilnya berbeda beda
+Hasilnya tidak terpaut jauh. Namun karena 1b menggunakan fungsi random alhasil hasilnya berbeda beda
 
 ``` R
 #d
@@ -36,6 +36,7 @@ x = 10000
 y = rgeom(x, 0.2)
 hist(y)
 ```
+Diagram dapat dilihat pada folder ss pada repo.
 
 ``` R
 #e
