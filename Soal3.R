@@ -1,20 +1,20 @@
 #No.3
 
-mean_bayi_lahir = 4.5
 #a
-banyak_bayi_lahir = 6
-dpois(banyak_bayi_lahir, mean_bayi_lahir)
+lambda = 4.5
+x = 6
+dpois(x, lambda)
 
 #b
-peluang = dpois(banyak_bayi_lahir,mean_bayi_lahir)
-data = data.frame(y=c(peluang), x=c(1:365))
-barplot(data$y, names.arg=data$x, ylab="peluang", xlab="hari ke-", ylim=0:1)
+set.seed(0)
+n = 365
+y = rpois(n, lambda)
+hist(y)
+z = (rpois(n, lambda) == 6)
+mean(z)
 
 #c
-# Dari Perhitungan yang diperoleh, didapatkan bahwa nilai distribusi poisson tidak berubah dari hari pertama hingga hari terakhir.
+#Tidak terpaut jauh
 
 #d
-lambda = mean_bayi_lahir
-rataan = varian = lambda
-rataan
-varian
+#Mean dan varians Distribusi Poison adalah lambda
