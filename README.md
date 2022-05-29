@@ -1,141 +1,111 @@
-# P1_Probstat_B_5025201061
-Praktikum Modul 1 Probabilitas dan Statistika
+# No. 1
+library(BSDA)
 
-## Nama-NRP
-| Nama                | NRP        |
-|---------------------|------------|
-|   Rachman Ridwan    | 5025201061 |
+responden <- c(1,2,3,4,5,6,7,8,9)
+x <- c(78,75,67,77,70,72,78,74,77)
+y <- c(100,95,70,90,90,90,89,90,100)
 
-## Soal 1
->Seorang penyurvei secara acak memilih orang-orang di jalan sampai dia bertemu dengan seseorang yang menghadiri acara vaksinasi sebelumnya.
-- Berapa peluang penyurvei bertemu x = 3 orang yang tidak menghadiri acara vaksinasi sebelum keberhasilan pertama ketika p = 0.20 dari populasi menghadiri acara vaksinasi? (distribusi Geometrik)
-``` R
-#a
-n = 3
-p = 0.20
-dgeom(x = n, prob = p)
-```
+x
+y
 
-- Mean distribusi Geometrik dengan 10000 data random, prob = 0,20 dimana distribusi geometrik acak tersebut X = 3 (distribusi Geometrik acak () == 3)
-``` R
-#b
-data = 10000
-p = 0.2
-x = 3
-vec = (rgeom(data, p) == x)
-mean(vec)
-```
+# 1A
+data <- data.frame(responden,x,y)
+standar_deviasi <- sd(data$x - data$y)
 
-#c
-Hasilnya tidak terpaut jauh. Namun karena 1b menggunakan fungsi random alhasil hasilnya berbeda beda
+print("standar deviasi =  ")
+standar_deviasi
 
-- (Soal 1D) Diagram dapat dilihat pada folder ss pada repo.
-``` R
-#d
-set.seed(10)
-x = 10000
-y = rgeom(x, 0.2)
-hist(y)
-```
+# 1B
+h <- data$x - data$y
+n <- 6
+s <- sd(h[1:6])
+mean1 <- mean(h)
+zbar <- mean(h[1:6])
+t <- ((zbar - mean1)/(s/sqrt(n)))
+p <- (2*pt(-abs(t),df <- n-1))
 
-- Mean Distribusi Geometrik adalah 1/p = 1/0.2 = 5  
-  Varians Distribusi Geometrik adalah q/(p^2) = 0.8/(0.2^2)= 20 
-``` R
-#e
-miu = 1/p
-paste("Average is ", miu)
+print("t(p - value) = ")
+t
+p
 
-varian = (1-p)/ p^2
-paste("Variant is ", varian)
-```
-</br>
+# 1C
+xbar = mean(y)          
+mu0 = mean(x)
+s = sd(y)
+n = length(y)
+t = (xbar-mu0)/(s/sqrt(n)) 
+t
 
-## Soal 2
-> Terdapat 20 pasien menderita Covid19 dengan peluang sembuh sebesar 0.2. Tentukan :
-- Peluang terdapat 4 pasien yang sembuh
-``` R
-Sampel = 20
-Peluang_Sembuh = 0.2
-Peluang_Tidak_Sembuh = 1 - Peluang_Sembuh
-#a
-Pasien_Sembuh = 4
-```
+alpha = 0.05 
+t.half.alpha = qt(1-alpha/2, df=n-1) 
+c(-t.half.alpha, t.half.alpha)
 
-- (Soal 2B) Diagram dapat dilihat pada folder ss pada repo.
-``` R
-#b
-peluang <- dbinom(1:20, 20, 0.2)
-data = data.frame(y=c(peluang), x=c(1:20))
-barplot(data$y, names.arg=data$x, ylab="Peluang", xlab="Jumlah Pasien")
-```
+pval <- 2*pt(t, df=n-1)
+pval
 
-- Nilai rataan (μ) dan varian (σ²) dari distribusi Binomial
-``` R
-#c
-p = Peluang_Sembuh
-q = Peluang_Tidak_Sembuh
-n = Pasien_Sembuh
-rataan = n*p
-cat ("rataan = ", rataan, "\n")
-varian = n*p*q
-cat ("varian = ", varian, "\n")
-```
-</br>
+cat("karena pvalue > 0,05 atau pvalue>alpha maka keputusan gagal tolak H0","\n",
+    "tidak ada pengaruh yang signifikan secara statistika dalam hal kadar saturasi oksigen , sebelum dan sesudah melakukan aktivitas")
 
-## Soal 3
-> Diketahui data dari sebuah tempat bersalin di rumah sakit tertentu menunjukkan rata-rata historis 4,5 bayi lahir di rumah sakit ini setiap hari. (gunakan Distribusi Poisson)
 
-- Langsung subtitusi ke fungsi ```dpois``` untuk menghitung peluang terdapat 4 pasien yang sembuh
-```r
-#a
-lambda = 4.5
-x = 6
-dpois(x, lambda)
-#hasil : [1] 0.1281201
-```
+t.test(h, alternative = 'two.sided',mu = mean1)
+# =====================================================
 
-- Simulasikan dan buatlah histogram kelahiran 6 bayi akan lahir di rumah sakit ini selama setahun (n = 365). Dapat dilihat di folder ss.
 
-```r
-#b
-set.seed(0)
-n = 365
-y = rpois(n, lambda)
-hist(y)
-z = (rpois(n, lambda) == 6)
-mean(z)
-#hasil : [1] 0.1342466
-```
+# No. 2
+library(BSDA)
 
-- Tidak terpaut jauh dengan ekspetasi
+print("hasil dari point A ")
+tsum.test(mean.x=23500, sd(3900), n.x=100)
 
-- Mean dan varians Distribusi Poison adalah lambda = 4.5
-</br>
+z <- (23500 - 20000)/(3900/sqrt(100))
+z
+# =====================================================
 
-## Soal 4
-> Diketahui nilai x = 2 dan v = 10. Tentukan:
-- Fungsi Probabilitas dari Distribusi Chi-Square.
-``` R
-x = 2
-v = 10
-#a
-dchisq(x, v)
-```
 
-- Histogram dari Distribusi Chi-Square dengan 100 data random. Data dapat dilihat pada folder ss.
-``` R
-#b
-random_data = 100
-output = rchisq(random_data, v)
-hist(output)
-```
+# No. 3
+library(mosaic)
 
-- Nilai Rataan (μ) dan Varian (σ²) dari DistribusiChi-Square.
-``` R
-#c
-rataan = v
-rataan
-varian = 2*v
-varian
-```
-</br>
+# 3A
+print("Nilai dari H0 dan H1 adalah ")
+zH0 <- (3.64-0)/(1.67/sqrt(19))
+zH1 <- (2.79-0)/(1.32/sqrt(27))
+
+zH0
+zH1
+
+# 3B
+print("Hitungan sampel statistik adalah ")
+tsum.test(mean.x=3.64, s.x = 1.67, n.x = 19,
+          mean.y =2.79 , s.y = 1.32, n.y = 27,
+          alternative = "greater")
+
+# 3C
+print("Hasil uji statistik dengan df = 2 ")
+uji_statistik <- plotDist(dist='t',df=2,  col="red")
+uji_statistik
+
+# 3D
+print("Nilai kritikal = ")
+nilai_kritikal <- qchisq(p = 0.05, df = 2, lower.tail=FALSE)
+nilai_kritikal
+# =====================================================
+
+# No. 4
+print("hasil dari point A ")
+file_data <- read.table(url("https://rstatisticsandresearch.weebly.com/uploads/1/0/2/6/1026585/onewayanova.txt"))
+attach(file_data)
+file_data$Jenis <- as.factor(file_data$Jenis)
+file_data$Jenis <- factor(file_data$Jenis,
+                          labels = c("kucing oren",
+                                     "kucing hitam",
+                                     "kucing putih"))
+class(file_data$Jenis)
+
+grup1 <- subset(file_data, Jenis == "kucing oren")
+grup2 <- subset(file_data, Jenis == "kucing hitam")
+grup3 <- subset(file_data, Jenis == "kucing putih")
+
+file_data
+grup1
+grup2
+grup3
